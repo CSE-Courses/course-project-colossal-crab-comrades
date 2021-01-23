@@ -131,31 +131,31 @@ namespace ColossalGame.Models.AI
                 case EnemyStrength.Easy:
                     enemySpawn.EnemyType = enemyType;
                     enemySpawn.Speed = 9f;
-                    enemySpawn.Damage = 5f;
+                    enemySpawn.Damage = 10f;
                     enemySpawn.InitialHealth = 10f;
                     break;
                 case EnemyStrength.EasyMedium:
                     enemySpawn.EnemyType = enemyType;
                     enemySpawn.Speed = 9f;
-                    enemySpawn.Damage = 5f;
+                    enemySpawn.Damage = 10f;
                     enemySpawn.InitialHealth = 10f;
                     break;
                 case EnemyStrength.Medium:
                     enemySpawn.EnemyType = enemyType;
                     enemySpawn.Speed = 9f;
-                    enemySpawn.Damage = 5f;
+                    enemySpawn.Damage = 10f;
                     enemySpawn.InitialHealth = 15f;
                     break;
                 case EnemyStrength.Hard:
                     enemySpawn.EnemyType = enemyType;
                     enemySpawn.Speed = 9f;
-                    enemySpawn.Damage = 5f;
+                    enemySpawn.Damage = 10f;
                     enemySpawn.InitialHealth = 25f;
                     break;
                 case EnemyStrength.VeryHard:
                     enemySpawn.EnemyType = enemyType;
                     enemySpawn.Speed = 10f;
-                    enemySpawn.Damage = 5f;
+                    enemySpawn.Damage = 10f;
                     enemySpawn.InitialHealth = 30f;
                     break;
             }
