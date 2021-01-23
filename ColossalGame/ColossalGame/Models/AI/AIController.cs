@@ -171,6 +171,7 @@ namespace ColossalGame.Models.AI
         public void Reset()
         {
             EnemyList.Clear();
+            _enemyOverflow = 0;
         }
 
         private static int _enemyOverflow = 0;
@@ -185,13 +186,13 @@ namespace ColossalGame.Models.AI
                     waveCount = 5 * players;
                     break;
                 case WaveSize.Medium:
-                    waveCount = 7 * players;
+                    waveCount = 6 * players;
                     break;
                 case WaveSize.Large:
-                    waveCount = 8* players;
+                    waveCount = 7* players;
                     break;
                 case WaveSize.XtraLarge:
-                    waveCount = (10 + _enemyOverflow++) * players;
+                    waveCount = (8 + _enemyOverflow++) * players;
                     break;
                 default:
                     waveCount = 5 * players;
