@@ -931,17 +931,17 @@ namespace ColossalGame.Services
                 
                 if (playerClass == "heavy")
                 {
-                    playerSpawn.FireRate = 120f;
+                    playerSpawn.FireRate = 130f;
                     playerSpawn.Speed = 15f;
-                    playerSpawn.InitialHealth = 150f;
-                    playerSpawn.Damage = 5f;
+                    playerSpawn.InitialHealth = 200f;
+                    playerSpawn.Damage = 8f;
                 }
                 else
                 {
                     playerSpawn.FireRate = 200f;
                     playerSpawn.Speed = 20f;
                     playerSpawn.InitialHealth = 100f;
-                    playerSpawn.Damage = 10f;
+                    playerSpawn.Damage = 20f;
                 }
                 
                 playerSpawn.PlayerClass = playerClass;
