@@ -155,11 +155,12 @@ namespace ColossalGame.Models.AI
                 case EnemyStrength.VeryHard:
                     enemySpawn.EnemyType = enemyType;
                     enemySpawn.Speed = 10.5f;
-                    enemySpawn.Damage = 10f;
+                    enemySpawn.Damage = 15f;
                     enemySpawn.InitialHealth = 30f;
                     if (players == 1)
                     {
-                        enemySpawn.Speed = 12f;
+                        enemySpawn.Speed = 13f;
+                        enemySpawn.InitialHealth = 50f;
                     }
                     break;
             }
