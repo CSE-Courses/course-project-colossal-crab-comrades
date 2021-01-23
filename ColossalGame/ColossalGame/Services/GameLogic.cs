@@ -17,6 +17,7 @@ namespace ColossalGame.Services
 {
     public class GameLogic
     {
+        #region Variables
         /// <summary>
         ///     Lower bound on milliseconds per world step, can be higher if inputs are sufficiently high
         /// </summary>
@@ -70,24 +71,6 @@ namespace ColossalGame.Services
         private AIController aiController = new AIController();
 
         private ConcurrentDictionary<string,int> deathCounterDictionary = new ConcurrentDictionary<string, int>();
-
-
-        /// <summary>
-        ///     Constructor for GameLogic class
-        /// </summary>
-        /// <param name="ls">LoginService of server</param>
-        /// <param name="us">UserService of server</param>
-        public GameLogic(LoginService ls, UserService us)
-        {
-            _ls = ls;
-            _us = us;
-            
-
-            SetupWorld();
-            Start();
-        }
-
-
         /// <summary>
         ///     Dictionary of usernames to PlayerModels.
         /// </summary>
@@ -107,6 +90,26 @@ namespace ColossalGame.Services
         public event EventHandler<PublishEvent> Publisher;
 
         private ConcurrentQueue<GameObjectModel> cleanupQueue = new ConcurrentQueue<GameObjectModel>();
+        #endregion
+        #region Constructor
+        /// <summary>
+        ///     Constructor for GameLogic class
+        /// </summary>
+        /// <param name="ls">LoginService of server</param>
+        /// <param name="us">UserService of server</param>
+        public GameLogic(LoginService ls, UserService us)
+        {
+            _ls = ls;
+            _us = us;
+            
+
+            SetupWorld();
+            Start();
+        }
+
+#endregion
+
+        
 
         /// <summary>
         ///     Resets listeners for publishing the state
@@ -245,6 +248,7 @@ namespace ColossalGame.Services
                 }
                 _world.Clear();
                 _world.ClearForces();
+                
                 _world = null;
                 _world = new World(Vector2.Zero);
             }
@@ -468,6 +472,11 @@ namespace ColossalGame.Services
                     return false;
                 }
 
+                if (fixtureA.Body.Tag is EnemyModel && fixtureB.Body.Tag is EnemyModel)
+                {
+                    return true;
+                }
+
                 if (fixtureA.Body.Tag is PlayerModel p1 && fixtureB.Body.Tag is EnemyModel eB)
                 {
 
@@ -524,9 +533,11 @@ namespace ColossalGame.Services
                 return true;
 
             });
-            enemy.OnCollision += new OnCollisionEventHandler(lambdaF);
-            lambdaDictionary.TryAdd(enemyModel.ID, new OnCollisionEventHandler(lambdaF));
+            var x = new OnCollisionEventHandler(lambdaF);
 
+            enemy.OnCollision += x;
+            lambdaDictionary.TryAdd(enemyModel.ID, x);
+            //enemy.OnSeparation += new OnSeparationEventHandler(((sender, other, contact) => { enemy.OnCollision -= x;}));
             _objectDictionary.TryAdd(enemyModel.ID, enemyModel);
             aiController.Register(enemyModel,ref _objectDictionary);
             

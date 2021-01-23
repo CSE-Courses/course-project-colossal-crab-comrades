@@ -131,31 +131,31 @@ namespace ColossalGame.Models.AI
                 case EnemyStrength.Easy:
                     enemySpawn.EnemyType = enemyType;
                     enemySpawn.Speed = 9f;
-                    enemySpawn.Damage = 2f;
+                    enemySpawn.Damage = 5f;
                     enemySpawn.InitialHealth = 10f;
                     break;
                 case EnemyStrength.EasyMedium:
                     enemySpawn.EnemyType = enemyType;
-                    enemySpawn.Speed = 10f;
+                    enemySpawn.Speed = 9f;
                     enemySpawn.Damage = 5f;
                     enemySpawn.InitialHealth = 10f;
                     break;
                 case EnemyStrength.Medium:
                     enemySpawn.EnemyType = enemyType;
-                    enemySpawn.Speed = 11f;
-                    enemySpawn.Damage = 10f;
+                    enemySpawn.Speed = 9f;
+                    enemySpawn.Damage = 5f;
                     enemySpawn.InitialHealth = 15f;
                     break;
                 case EnemyStrength.Hard:
                     enemySpawn.EnemyType = enemyType;
-                    enemySpawn.Speed = 12f;
-                    enemySpawn.Damage = 25f;
+                    enemySpawn.Speed = 9f;
+                    enemySpawn.Damage = 5f;
                     enemySpawn.InitialHealth = 25f;
                     break;
                 case EnemyStrength.VeryHard:
                     enemySpawn.EnemyType = enemyType;
-                    enemySpawn.Speed = 13f;
-                    enemySpawn.Damage = 35f;
+                    enemySpawn.Speed = 10f;
+                    enemySpawn.Damage = 5f;
                     enemySpawn.InitialHealth = 30f;
                     break;
             }
@@ -179,16 +179,16 @@ namespace ColossalGame.Models.AI
                     waveCount = 5 * players;
                     break;
                 case WaveSize.Medium:
-                    waveCount = 10 * players;
+                    waveCount = 7 * players;
                     break;
                 case WaveSize.Large:
-                    waveCount = 20 * players;
+                    waveCount = 8* players;
                     break;
                 case WaveSize.XtraLarge:
-                    waveCount = 40 * players;
+                    waveCount = 10 * players;
                     break;
                 default:
-                    waveCount = 10 * players;
+                    waveCount = 5 * players;
                     break;
             }
             var rand = new Random();
