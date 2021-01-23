@@ -72,7 +72,7 @@ namespace ColossalGame.Models.AI
             XtraLarge
         }
 
-        public void SpawnOneTick(EnemyStrength enemyStrength, ref ConcurrentQueue<SpawnObject> spawnQueue, WaveTypes waveType, float innerRadius=1600f/64f, float outerRadius=2000f/64f,float sideLength=4000f/64f)
+        public void SpawnOneTick(EnemyStrength enemyStrength, ref ConcurrentQueue<SpawnObject> spawnQueue, WaveTypes waveType,int players, float innerRadius=1600f/64f, float outerRadius=2000f/64f,float sideLength=4000f/64f)
         {
             EnemySpawnObject enemySpawn = new EnemySpawnObject();
             var rand = new Random();
@@ -154,9 +154,13 @@ namespace ColossalGame.Models.AI
                     break;
                 case EnemyStrength.VeryHard:
                     enemySpawn.EnemyType = enemyType;
-                    enemySpawn.Speed = 10f;
+                    enemySpawn.Speed = 10.5f;
                     enemySpawn.Damage = 10f;
                     enemySpawn.InitialHealth = 30f;
+                    if (players == 1)
+                    {
+                        enemySpawn.Speed = 12f;
+                    }
                     break;
             }
             
@@ -211,7 +215,7 @@ namespace ColossalGame.Models.AI
 
             Parallel.For(0, waveCount, (i =>
             {
-                SpawnOneTick(enemyStrength, ref tempSQ, waveType,innerRadius,outerRadius,sideLength);
+                SpawnOneTick(enemyStrength, ref tempSQ, waveType,players,innerRadius,outerRadius,sideLength);
             }));
             spawnQueue = tempSQ;
         }
