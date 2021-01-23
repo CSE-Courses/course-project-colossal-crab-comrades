@@ -124,7 +124,7 @@ namespace ColossalGame.Models.AI
             }
 
             var enemyType = "alien_tick";
-            enemySpawn.Radius = .4f;
+            enemySpawn.Radius = .8f;
             enemySpawn.InitialRestitution = 0f;
             switch (enemyStrength)
             {
@@ -154,10 +154,10 @@ namespace ColossalGame.Models.AI
                     break;
                 case EnemyStrength.VeryHard:
                     enemySpawn.EnemyType = enemyType;
-                    enemySpawn.Speed = 10.5f;
+                    enemySpawn.Speed = 11f;
                     enemySpawn.Damage = 15f;
                     enemySpawn.InitialHealth = 30f;
-                    if (players == 1)
+                    if (players <= 2)
                     {
                         enemySpawn.Speed = 13f;
                         enemySpawn.InitialHealth = 50f;
