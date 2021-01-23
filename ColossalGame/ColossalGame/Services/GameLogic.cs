@@ -487,7 +487,7 @@ namespace ColossalGame.Services
                         var body2ref = eB.ObjectBody.WorldCenter;
                         Vector2.Distance(ref body1ref, ref body2ref, out var result);
                         //Console.WriteLine(result);
-                        if (result < 1f)
+                        if (result < 2f)
                         {
                             player2.Hurt(eB.Damage);
                         }
@@ -514,7 +514,7 @@ namespace ColossalGame.Services
                         var body2ref = eA.ObjectBody.WorldCenter;
                         Vector2.Distance(ref body1ref, ref body2ref, out var result);
                         //Console.WriteLine(result);
-                        if (result < 1f)
+                        if (result < 2f)
                         {
                             player2.Hurt(eA.Damage);
                         }
