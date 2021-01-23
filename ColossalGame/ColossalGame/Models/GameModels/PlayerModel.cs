@@ -78,7 +78,7 @@ namespace ColossalGame.Models.GameModels
         private DateTime dt = DateTime.Now;
         public void Hurt(float damage)
         {
-            if (( DateTime.Now-dt).TotalMilliseconds >= 100.0)
+            if (( DateTime.Now-dt).TotalMilliseconds >= 75.0)
             {
                 Health -= damage;
                 if (Health <= 0)
