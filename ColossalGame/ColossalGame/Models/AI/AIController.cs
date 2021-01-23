@@ -169,6 +169,8 @@ namespace ColossalGame.Models.AI
             EnemyList.Clear();
         }
 
+        private static int _enemyOverflow = 0;
+
         public void SpawnWave(ref ConcurrentQueue<SpawnObject> spawnQueue,EnemyStrength enemyStrength,WaveSize waveSize,int players,float innerRadius=1600f/64f, float outerRadius=2000f/64f,float sideLength = 4000/64f )
         {
             var tempSQ = spawnQueue;
@@ -185,7 +187,7 @@ namespace ColossalGame.Models.AI
                     waveCount = 8* players;
                     break;
                 case WaveSize.XtraLarge:
-                    waveCount = 10 * players;
+                    waveCount = (10 + _enemyOverflow++) * players;
                     break;
                 default:
                     waveCount = 5 * players;
